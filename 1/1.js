@@ -6,8 +6,8 @@ class ProductManager {
     this.productos = [];
   }
 
-  addProduct(title, description, price, thumbnail, code, stock) {
-    this.productos.push(
+  addProduct(title, description, price, thumbnail, code, stock){
+      this.productos.push(
       (this.title = title),
       (this.description = description),
       (this.price = price),
@@ -42,5 +42,23 @@ add.addProduct(
   true
 );
 
-console.log(add.getProducts());
-console.log(add.getProductById(1));
+add.addProduct(
+  "Teclado",
+  "Logitech",
+  500,
+  "hhttps//image.png2",
+  (id += 1),
+  true
+);
+
+add.addProduct(
+  "Mouse",
+  "Redragon",
+  500,
+  "hhttps//image.png2",
+  (id += 1),
+  true
+  );
+
+console.table(add.getProducts());
+console.log(add.getProductById(4));
