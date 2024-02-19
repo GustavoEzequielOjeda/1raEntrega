@@ -1,20 +1,19 @@
-let id = 0;
-console.log(id);
-
+let id= 0
 class ProductManager {
   constructor() {
     this.productos = [];
   }
 
-  addProduct(title, description, price, thumbnail, code, stock){
-      this.productos.push(
+  addProduct(title, description, price, thumbnail, stock){
+    
+      this.productos.push([
       (this.title = title),
       (this.description = description),
       (this.price = price),
       (this.thumbnail = thumbnail),
-      (this.code = code),
+      (this.code = id+=1),
       (this.stock = stock)
-    );
+      ]);
   }
 
   getProducts() {
@@ -38,7 +37,6 @@ add.addProduct(
   "Hyperx Cloud Fight",
   1000,
   "hhttps//image.png",
-  (id += 1),
   true
 );
 
@@ -47,7 +45,6 @@ add.addProduct(
   "Logitech",
   500,
   "hhttps//image.png2",
-  (id += 1),
   true
 );
 
@@ -56,9 +53,8 @@ add.addProduct(
   "Redragon",
   500,
   "hhttps//image.png2",
-  (id += 1),
   true
   );
 
-console.table(add.getProducts());
+console.log(add.getProducts());
 console.log(add.getProductById(4));
