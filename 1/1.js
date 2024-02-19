@@ -1,19 +1,21 @@
-let id= 0
 class ProductManager {
   constructor() {
     this.productos = [];
   }
+  static id = 0;
 
-  addProduct(title, description, price, thumbnail, stock){
-    
-      this.productos.push([
-      (this.title = title),
-      (this.description = description),
-      (this.price = price),
-      (this.thumbnail = thumbnail),
-      (this.code = id+=1),
-      (this.stock = stock)
-      ]);
+  addProduct(title, description, price, thumbnail, stock) {
+    ProductManager.id++;
+    const a = {
+      id: ProductManager.id,
+      title,
+      description,
+      price,
+      thumbnail,
+      stock,
+    };
+    this.productos.push(a);
+    console.log("Length: ", this.productos.length);
   }
 
   getProducts() {
@@ -21,12 +23,11 @@ class ProductManager {
   }
 
   getProductById(id) {
-    let buscarId = this.productos.find((producto) => producto.code === id);
-    if (!buscarId) {
-      console.log(`No existe usuarios con ID : ${id}`);
-      return;
+    if (!this.productos.find((producto) => producto.id === id)) {
+      console.log("No existe");
+    } else {
+      console.log("Existe");
     }
-    return buscarId;
   }
 }
 
@@ -35,26 +36,13 @@ const add = new ProductManager();
 add.addProduct(
   "Auriculares",
   "Hyperx Cloud Fight",
-  1000,
+  500,
   "hhttps//image.png",
   true
 );
-
-add.addProduct(
-  "Teclado",
-  "Logitech",
-  500,
-  "hhttps//image.png2",
-  true
-);
-
-add.addProduct(
-  "Mouse",
-  "Redragon",
-  500,
-  "hhttps//image.png2",
-  true
-  );
+add.addProduct("Teclado", "Logitech", 500, "hhttps//image.png2", true);
+add.addProduct("Mouse", "Redragon", 500, "hhttps//image.png2", true);
 
 console.log(add.getProducts());
-console.log(add.getProductById(4));
+
+add.getProductById(5)
